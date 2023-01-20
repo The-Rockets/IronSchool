@@ -41,32 +41,43 @@ public class InitialMenu{
     }
 
     //3
-    public void enterDetailsEachTeacher(int numberTeachers) {
+    public static void enterDetailsEachTeacher(int numberTeachers) {
 
     }
 
     //4
-    public int askedNumberCoursesCreated() {
+    public static int askedNumberCoursesCreated() {
         return statIntegerFilter("Courses");
     }
 
     //5
-    public void enterDetailsEachCourse(int numberCourses) {
+    public static void enterDetailsEachCourse(int numberCourses) {
 
     }
 
     //6
-    public int askedNumberStudentsCreated() {
+    public static int askedNumberStudentsCreated() {
         return statIntegerFilter("Student");
     }
 
     //7
-    public void enterDetailsEachStudent(int numberStudents) {
+    public static void enterDetailsEachStudent(int numberStudents) {
 
     }
 
     //8
-    public void enterCommandOfListToExecuteAction(Commands command) {
+    public static void enterCommandOfListToExecuteAction(Commands command) {
+        switch (command){
+            case ENROLL:
+            case ASSIGN:
+            case SHOW_COURSES:
+            case LOOKUP_COURSE:
+            case SHOW_STUDENTS:
+            case LOOKUP_STUDENT:
+            case SHOW_TEACHERS:
+            case LOOKUP_TEACHER:
+            case SHOW_PROFIT:
+        }
 
     }
 }
