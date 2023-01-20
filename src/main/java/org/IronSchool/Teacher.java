@@ -1,26 +1,27 @@
 package org.IronSchool;
 
 import java.util.HashMap;
+import java.util.UUID;
 
 public class Teacher {
 
-    private static int counter=0;
-    private final String teacherId;
+    private final UUID id;
+
     private String name;
     private double salary;
     private HashMap<String,Course> mapTeacherCourses;
 
     public Teacher(String name, double salary) {
-        this.teacherId="tchr"+counter;
+        this.id= UUID.randomUUID();
         this.name = name;
         this.salary = salary;
-        counter++;
+
     }
 
     @Override
     public String toString() {
         return "Teacher{" +
-                "teacherId='" + teacherId + '\'' +
+                "teacherId='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", salary=" + salary +
                 '}';
