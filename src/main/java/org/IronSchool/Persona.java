@@ -1,12 +1,12 @@
 package org.IronSchool;
 
-public class Persona {
+public class Person {
     private String name;
     private String address;
 
     private String email;
 
-    public Persona(String name, String address, String email) {
+    public Person(String name, String address, String email) {
         setName(name);
         setAddress(address);
         setAddress(address);
