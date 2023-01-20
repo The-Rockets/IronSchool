@@ -1,50 +1,71 @@
 package org.IronSchool;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class InitialMenu implements applicationWorks{
+public class InitialMenu{
 
-    private Scanner scanner=new Scanner(System.in);
 
-    @Override
-    public String askingNameSchool() {
-        System.out.println("Introduce el nombre de la escuela");
+
+    public static String askingNameSchool() {
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("Enter the name of the school");
         String name=scanner.next();
         return name;
-
     }
 
-    @Override
-    public int askedNumberTeachersCreated() {
-        return 0;
+    //2
+
+    public static int statFilter(String statName) {
+        Scanner scanner = new Scanner(System.in);
+        boolean  invalidStat= false;
+        int stat=0;
+        while (!invalidStat) {
+            try {
+                System.out.println("Enter a positive integer value of numbers of " +statName );
+                stat = scanner.nextInt();
+                if (stat >0) {
+                    invalidStat = true;
+                }else {
+                    System.err.println("The number of "+statName+" must be a positive integer");
+                }
+            } catch (InputMismatchException e) {
+                System.err.println("The number of "+statName+" must be a positive integer");
+                scanner.nextLine();
+            }
+        }
+        return stat;
+    }
+    public static int askedNumberTeachersCreated() {
+        return statFilter("Teachers");
     }
 
-    @Override
+    //3
     public void enterDetailsEachTeacher(int numberTeachers) {
 
     }
 
-    @Override
+    //4
     public int askedNumberCoursesCreated() {
-        return 0;
+        return statFilter("Courses");
     }
 
-    @Override
+    //5
     public void enterDetailsEachCourse(int numberCourses) {
 
     }
 
-    @Override
+    //6
     public int askedNumberStudentsCreated() {
-        return 0;
+        return statFilter("Student");
     }
 
-    @Override
+    //7
     public void enterDetailsEachStudent(int numberStudents) {
 
     }
 
-    @Override
+    //8
     public void enterCommandOfListToExecuteAction(Commands command) {
 
     }
