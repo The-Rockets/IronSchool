@@ -1,7 +1,16 @@
 package org.IronSchool;
+
+import java.util.Scanner;
+
 public class InitialMenu implements applicationWorks{
+
+    private Scanner scanner=new Scanner(System.in);
+
     @Override
-    public void askingNameSchool() {
+    public String askingNameSchool() {
+        System.out.println("Introduce el nombre de la escuela");
+        String name=scanner.next();
+        return name;
 
     }
 

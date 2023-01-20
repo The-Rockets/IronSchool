@@ -2,7 +2,8 @@ package org.IronSchool;
 
 public interface applicationWorks {
     //1
-    void askingNameSchool();
+    String askingNameSchool();
+
     //2
     int askedNumberTeachersCreated();
     //3
