@@ -16,7 +16,7 @@ public class InitialMenu{
 
     //2
 
-    public static int statFilter(String statName) {
+    public static int statIntegerFilter(String statName) {
         Scanner scanner = new Scanner(System.in);
         boolean  invalidStat= false;
         int stat=0;
@@ -37,7 +37,7 @@ public class InitialMenu{
         return stat;
     }
     public static int askedNumberTeachersCreated() {
-        return statFilter("Teachers");
+        return statIntegerFilter("Teachers");
     }
 
     //3
@@ -47,7 +47,7 @@ public class InitialMenu{
 
     //4
     public int askedNumberCoursesCreated() {
-        return statFilter("Courses");
+        return statIntegerFilter("Courses");
     }
 
     //5
@@ -57,7 +57,7 @@ public class InitialMenu{
 
     //6
     public int askedNumberStudentsCreated() {
-        return statFilter("Student");
+        return statIntegerFilter("Student");
     }
 
     //7
