@@ -1,7 +1,6 @@
 package org.IronSchool;
 
 import java.util.List;
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,16 +15,6 @@ public class Main {
         int numberCourses=InitialMenu.askedNumberCoursesCreated();
         List<Course> courses= InitialMenu.enterDetailsEachCourse(numberCourses);
         System.out.println(courses.toString());
-
-
-
-
-
-
-
-
-
-
 
 
 
