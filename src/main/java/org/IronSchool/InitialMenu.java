@@ -81,7 +81,16 @@ public class InitialMenu{
 
     //5
     public static List<Course> enterDetailsEachCourse(int numberCourses) {
-        return null;
+        List<Course> courses=new ArrayList<>();
+        for(int i=0; i<numberCourses;i++){
+            System.out.println("================================");
+            System.out.println("Enter the data of Teacher "+(i+1));
+            System.out.println("================================");
+            String name= statStringFilter("Course name");
+            double price=statIntegerFilter("price");
+            courses.add(new Course(name,price));
+        }
+        return courses;
     }
 
     //6

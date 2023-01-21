@@ -13,8 +13,8 @@ public class Teacher {
 
     public Teacher(String name, double salary) {
         this.id= UUID.randomUUID();
-        this.name = name;
-        this.salary = salary;
+        setName(name);
+        setSalary(salary);
     }
 
     public void setName(String name) {
