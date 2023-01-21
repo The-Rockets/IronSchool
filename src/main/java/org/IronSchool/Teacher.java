@@ -15,7 +15,26 @@ public class Teacher {
         this.id= UUID.randomUUID();
         this.name = name;
         this.salary = salary;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getSalary() {
+        return salary;
     }
 
     @Override
