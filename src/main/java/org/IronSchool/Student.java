@@ -1,5 +1,6 @@
 package org.IronSchool;
 
+import java.util.HashMap;
 import java.util.UUID;
 
 public class Student {
@@ -7,14 +8,16 @@ public class Student {
     private String name;
     private String address;
     private String email;
-    private Course course;
 
-    public Student(String name, String address, String email,Course course) {
+    private HashMap<String,Course> mapStudentCourses;
+    private HashMap<String,Teacher> mapStudentTeachers;
+
+
+    public Student(String name, String address, String email) {
         this.studentId = UUID.randomUUID().toString();
         setName(name);
         setAddress(address);
         setEmail(email);
-        setCourse(course);
     }
 
     public String getStudentId() {
@@ -33,9 +36,6 @@ public class Student {
         return this.email;
     }
 
-    public Course getCourse() {
-        return this.course;
-    }
 
     public void setName(String name) {
         this.name = name;
@@ -49,7 +49,4 @@ public class Student {
         this.email = email;
     }
 
-    public void setCourse(Course course) {
-        this.course = course;
-    }
 }

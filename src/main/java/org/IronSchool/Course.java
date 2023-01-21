@@ -1,29 +1,25 @@
 package org.IronSchool;
 
 import java.util.Objects;
+import java.util.UUID;
 
 public class Course {
-    private String courseId;
+    private final UUID id;
     private String name;
     private double price;
     private double money_earned;
     private Teacher teacher;
 
-    public Course(String courseId, String name, double price, double money_earned, Teacher teacher) {
-        this.courseId = courseId;
-        this.name = name;
-        this.price = price;
-        this.money_earned = money_earned;
-        this.teacher = teacher;
+    public Course(String name, double price) {
+        this.id= UUID.randomUUID();
+        setName(name);
+        setPrice(price);
     }
 
-    public String getCourseId() {
-        return courseId;
+    public UUID getId() {
+        return id;
     }
 
-    public void setCourseId(String courseId) {
-        this.courseId = courseId;
-    }
 
     public String getName() {
         return name;
@@ -57,17 +53,14 @@ public class Course {
         this.teacher = teacher;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Course course = (Course) o;
-        return Double.compare(course.price, price) == 0 && Double.compare(course.money_earned, money_earned) == 0 && Objects.equals(courseId, course.courseId) && Objects.equals(name, course.name) && Objects.equals(teacher, course.teacher);
-    }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(courseId, name, price, money_earned, teacher);
+    public String toString() {
+        return "Course{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                '}';
     }
 }
 
