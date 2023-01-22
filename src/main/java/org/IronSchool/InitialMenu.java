@@ -46,8 +46,6 @@ public class InitialMenu{
     }
 
 
-
-
     //1
     public static String askingNameSchool() {
         return statStringFilter("School name");
@@ -84,7 +82,7 @@ public class InitialMenu{
         List<Course> courses=new ArrayList<>();
         for(int i=0; i<numberCourses;i++){
             System.out.println("================================");
-            System.out.println("Enter the data of Teacher "+(i+1));
+            System.out.println("Enter the data of Course "+(i+1));
             System.out.println("================================");
             String name= statStringFilter("Course name");
             double price=statIntegerFilter("price");
@@ -100,7 +98,25 @@ public class InitialMenu{
 
     //7
     public static List<Student> enterDetailsEachStudent(int numberStudents) {
-        return null;
+        List<Student> students=new ArrayList<>();
+        for(int i=0; i<numberStudents;i++){
+            System.out.println("================================");
+            System.out.println("Enter the data of Student "+(i+1));
+            System.out.println("================================");
+            String firstName= statStringFilter("Student first name");
+            String lastName= statStringFilter("Student last name");
+            String fullName=firstName+" "+lastName;
+            String address= statStringFilter("Student address");
+            String email="";
+            while (!email.contains("@")) {
+                email=statStringFilter("Student email");
+                if(!email.contains("@")){
+                    System.err.println("The email must have a symbol '@'");
+                }
+            }
+            students.add(new Student(fullName,address,email));
+        }
+        return students;
     }
 
     //8
