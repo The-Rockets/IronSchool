@@ -6,9 +6,8 @@ public class Person {
 
     private String email;
 
-    public Person(String name, String address, String email) {
+    public Person(String name, String address) {
         setName(name);
-        setAddress(address);
         setAddress(address);
     }
 
