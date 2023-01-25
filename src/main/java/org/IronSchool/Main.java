@@ -28,7 +28,9 @@ public class Main {
         System.out.println(students.toString());
 
 
-        InitialMenu.enterCommandOfListToExecuteAction(Commands.SHOW_COURSES,courses,teachers,students);
+        InitialMenu.enterCommandOfListToExecuteAction(Commands.ENROLL,students.get(0).getStudentId(),courses.get(0).getId(),courses,teachers,students);
+
+
 
 
     }

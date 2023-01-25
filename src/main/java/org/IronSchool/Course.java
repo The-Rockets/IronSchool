@@ -1,22 +1,27 @@
 package org.IronSchool;
 
-import java.util.Objects;
+import java.util.List;
 import java.util.UUID;
 
 public class Course {
-    private final UUID id;
+    private final int id;
     private String name;
     private double price;
-    private double money_earned;
-    private Teacher teacher;
+    private double moneyEarned;
+    private List<Teacher> teacherList;
+
+    private List<Student> studentList;
+
+    private int counter = 0;
 
     public Course(String name, double price) {
-        this.id= UUID.randomUUID();
+        this.id = counter;
         setName(name);
         setPrice(price);
+        counter++;
     }
 
-    public UUID getId() {
+    public int getId() {
         return id;
     }
 
@@ -37,22 +42,30 @@ public class Course {
         this.price = price;
     }
 
-    public double getMoney_earned() {
-        return money_earned;
+    public double getMoneyEarned() {
+
+        return getPrice()* studentList.size();
     }
 
-    public void setMoney_earned(double money_earned) {
-        this.money_earned = money_earned;
+    public void setMoneyEarned(double money_earned) {
+        this.moneyEarned = money_earned;
     }
 
-    public Teacher getTeacher() {
-        return teacher;
+    public List<Teacher> getTeacherList() {
+        return teacherList;
     }
 
-    public void setTeacher(Teacher teacher) {
-        this.teacher = teacher;
+    public void setTeacherList(List<Teacher> teacherList) {
+        this.teacherList = teacherList;
     }
 
+    public List<Student> getStudentList() {
+        return studentList;
+    }
+
+    public void setStudentList(List<Student> studentList) {
+        this.studentList = studentList;
+    }
 
     @Override
     public String toString() {
@@ -61,6 +74,11 @@ public class Course {
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 '}';
+    }
+
+
+    public void addStudent(Student student) {
+        studentList.add(student);
     }
 }
 

@@ -156,12 +156,32 @@ public class InitialMenu{
 
     }
 
+    public static void enrollStudent(int studentId, int courseId,List<Student> students,List<Course> courses) {
+        try {
+            if (studentId > students.size() || courseId > courses.size()) {
+                throw new Exception("Invalid student or course ID");
+            } else {
+                Student student = students.get(studentId);
+                Course course = courses.get(courseId);
+                student.addCourse(course);
+                course.addStudent(student);
+                course.setMoneyEarned(course.getMoneyEarned() + course.getPrice());
+                System.out.println("Student " + student.getName() + " has been enrolled in " + course.getName() + " course.");
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
 
 
     //8
-    public static void enterCommandOfListToExecuteAction(Commands command,List<Course>courses,List<Teacher>teachers,List<Student>students) {
+    public static void enterCommandOfListToExecuteAction(Commands command,int studentId, int courseId,List<Course>courses,List<Teacher>teachers,List<Student>students) {
         switch (command){
             case ENROLL:
+                enrollStudent( studentId,courseId, students, courses);
+                break;
             case ASSIGN:
             case SHOW_COURSES:
                 showCourses(courses);
