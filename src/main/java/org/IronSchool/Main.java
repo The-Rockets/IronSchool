@@ -1,6 +1,7 @@
 package org.IronSchool;
 import org.IronSchool.ASCIIartTEST.ASCIIartTEST;
 import org.IronSchool.ASCIIartTEST.AdvancedASCIItest;
+import org.IronSchool.ASCIIartTEST.AskingNameSchoolToASCIIart;
 
 import java.util.List;
 
@@ -8,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
 
 
-        String name=InitialMenu.askingNameSchool();
+        String name = AskingNameSchoolToASCIIart.askingSchoolNameASCIIMethod();
 
 
         int numberTeacher=InitialMenu.askedNumberTeachersCreated();
