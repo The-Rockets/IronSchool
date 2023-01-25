@@ -119,16 +119,63 @@ public class InitialMenu{
         return students;
     }
 
+
+    public static void showCourses(List<Course> courses) {
+        if (courses.isEmpty()) {
+            System.out.println("No courses have been created yet.");
+        } else {
+            System.out.println("List of courses:");
+            for (int i = 0; i < courses.size(); i++) {
+                System.out.println((i+1) + ": " + courses.get(i).getName() + " - $" + courses.get(i).getPrice());
+            }
+        }
+    }
+
+    public static void showTeachers(List<Teacher> teachers) {
+
+        if (teachers.isEmpty()) {
+               System.out.println("No teachers have been created yet.");
+           } else {
+               System.out.println("List of teachers:");
+               for (int i = 0; i < teachers.size(); i++) {
+                   System.out.println((i + 1) + ": " + teachers.get(i).getName() + " - $" + teachers.get(i).getSalary());
+               }
+           }
+    }
+
+    public static void showStudents(List<Student> students) {
+
+            if (students.isEmpty()) {
+                System.out.println("No students have been created yet.");
+            } else {
+                System.out.println("List of students:");
+                for (int i = 0; i < students.size(); i++) {
+                    System.out.println((i+1) + ": " + students.get(i).getName() + " - "+ students.get(i).getEmail());
+                }
+            }
+
+    }
+
+
+
     //8
-    public static void enterCommandOfListToExecuteAction(Commands command) {
+    public static void enterCommandOfListToExecuteAction(Commands command,List<Course>courses,List<Teacher>teachers,List<Student>students) {
         switch (command){
             case ENROLL:
             case ASSIGN:
             case SHOW_COURSES:
+                showCourses(courses);
+                break;
+
             case LOOKUP_COURSE:
             case SHOW_STUDENTS:
+                showStudents(students);
+                break;
+
             case LOOKUP_STUDENT:
             case SHOW_TEACHERS:
+                showTeachers(teachers);
+                break;
             case LOOKUP_TEACHER:
             case SHOW_PROFIT:
         }
