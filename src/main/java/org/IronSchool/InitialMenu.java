@@ -145,15 +145,10 @@ public class InitialMenu{
 
     public static void showStudents(List<Student> students) {
 
-            if (students.isEmpty()) {
-                System.out.println("No students have been created yet.");
-            } else {
-                System.out.println("List of students:");
-                for (int i = 0; i < students.size(); i++) {
-                    System.out.println((i+1) + ": " + students.get(i).getName() + " - "+ students.get(i).getEmail());
-                }
+            System.out.println("List of students:");
+            for (int i = 0; i < students.size(); i++) {
+                System.out.println((i+1) + ": " + students.get(i).getName() + " - "+ students.get(i).getEmail());
             }
-
     }
 
     public static void enrollStudent(int studentId, int courseId,List<Student> students,List<Course> courses) {
@@ -171,6 +166,27 @@ public class InitialMenu{
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+
+        public static void assignTeacher(int teacherId, int courseId, List<Teacher> teachers, List<Course> courses) {
+            try {
+                if (teacherId > teachers.size() || courseId > courses.size()) {
+                    throw new Exception("Invalid teacher or course ID");
+                } else {
+                    Teacher teacher = teachers.get(teacherId);
+                    Course course = courses.get(courseId);
+                    teacher.addCourse(course);
+                    course.addTeacher(teacher);
+                    System.out.println("Teacher " + teacher.getName() + " has been assigned to " + course.getName() + " course.");
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+
+
+
+
     }
 
 

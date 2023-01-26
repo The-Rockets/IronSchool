@@ -1,6 +1,7 @@
 package org.IronSchool;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.UUID;
 
 public class Teacher {
@@ -9,7 +10,7 @@ public class Teacher {
 
     private String name;
     private double salary;
-    private HashMap<String,Course> mapTeacherCourses;
+    private List<Course> courseList;
 
     public Teacher(String name, double salary) {
         this.id= UUID.randomUUID();
@@ -36,7 +37,9 @@ public class Teacher {
     public double getSalary() {
         return salary;
     }
-
+    public void addCourse(Course course) {
+        courseList.add(course);
+    }
     @Override
     public String toString() {
         return "Teacher{" +

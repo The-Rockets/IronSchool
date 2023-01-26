@@ -1,5 +1,6 @@
 package org.IronSchool;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
@@ -10,8 +11,8 @@ public class Student {
     private String address;
     private String email;
 
-    private List<Course> listCourses;
-    private List<Teacher> listTeachers;
+    private List<Course> listCourses = new ArrayList<>();
+    private List<Teacher> listTeachers = new ArrayList<>();
 
 
     private int counter = 0;
@@ -59,5 +60,9 @@ public class Student {
 
     public void addCourse(Course course) {
         listCourses.add(course);
+    }
+
+    public List<Course> getListCourses() {
+        return listCourses;
     }
 }

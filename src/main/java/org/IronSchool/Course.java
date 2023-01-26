@@ -1,5 +1,6 @@
 package org.IronSchool;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -8,9 +9,9 @@ public class Course {
     private String name;
     private double price;
     private double moneyEarned;
-    private List<Teacher> teacherList;
+    private List<Teacher> teacherList = new ArrayList<>();
 
-    private List<Student> studentList;
+    private List<Student> studentList = new ArrayList<>();
 
     private int counter = 0;
 
@@ -79,6 +80,9 @@ public class Course {
 
     public void addStudent(Student student) {
         studentList.add(student);
+    }
+    public void addStudent(Teacher teacher) {
+        teacherList.add(teacher);
     }
 }
 
