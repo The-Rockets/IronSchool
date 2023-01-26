@@ -39,6 +39,8 @@ public class Main {
         //int numberStudents=InitialMenu.askedNumberStudentsCreated();
         List<Student> students= new ArrayList<>();
         students.add(new Student("Pere","street 5","pere@pere.com"));
+        students.add(new Student("BOb","street 55","a@a.com"));
+        students.add(new Student("Daniel","street 25","dan@dan.com"));
 
                 //InitialMenu.enterDetailsEachStudent(numberStudents);
         System.out.println(students.toString());
