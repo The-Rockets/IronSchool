@@ -167,21 +167,7 @@ public class InitialMenu{
             System.out.println(e.getMessage());
         }
 
-        public static void assignTeacher(int teacherId, int courseId, List<Teacher> teachers, List<Course> courses) {
-            try {
-                if (teacherId > teachers.size() || courseId > courses.size()) {
-                    throw new Exception("Invalid teacher or course ID");
-                } else {
-                    Teacher teacher = teachers.get(teacherId);
-                    Course course = courses.get(courseId);
-                    teacher.addCourse(course);
-                    course.addTeacher(teacher);
-                    System.out.println("Teacher " + teacher.getName() + " has been assigned to " + course.getName() + " course.");
-                }
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-            }
-        }
+
 
 
 

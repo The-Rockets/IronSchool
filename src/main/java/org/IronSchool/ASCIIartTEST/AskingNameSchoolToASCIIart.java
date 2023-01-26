@@ -14,7 +14,7 @@ public class AskingNameSchoolToASCIIart {
         //Scanner scanner = new Scanner(System.in);
         //String name = scanner.nextLine();
 
-        String name = "RECKETS";
+        String name = "Rockets School";
         try {
             // Generar el ASCII art
             String asciiArt = FigletFont.convertOneLine(name);

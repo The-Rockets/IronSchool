@@ -21,7 +21,7 @@ public class Main {
 
 
         //InitialMenu.enterDetailsEachTeacher(numberTeacher);
-        //System.out.println(teachers.toString());
+        System.out.println(teachers.toString());
 
 
 
@@ -32,7 +32,7 @@ public class Main {
         courses.add(new Course("SQL",220));
 
         //InitialMenu.enterDetailsEachCourse(numberCourses);
-        //System.out.println(courses.toString());
+        System.out.println(courses.toString());
 
 
 
@@ -41,7 +41,7 @@ public class Main {
         students.add(new Student("Pere","street 5","pere@pere.com"));
 
                 //InitialMenu.enterDetailsEachStudent(numberStudents);
-        //System.out.println(students.toString());
+        System.out.println(students.toString());
 
 
 
@@ -59,7 +59,7 @@ public class Main {
                 InitialMenu.enrollStudent(studentId,courseId, students, courses);
                 break;
             case ASSIGN:
-                InitialMenu.assignTeacher(studentId,courseId, teachers, courses);
+                //InitialMenu.assignTeacher(studentId,courseId, teachers, courses);
                 break;
             case SHOW_COURSES:
                 InitialMenu.showCourses(courses);
@@ -76,6 +76,5 @@ public class Main {
             case LOOKUP_TEACHER:
             case SHOW_PROFIT:
         }
-        System.out.println(students.get(0).getListCourses().toString());
     }
 }
