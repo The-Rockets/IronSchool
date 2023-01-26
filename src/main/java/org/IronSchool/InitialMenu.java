@@ -176,29 +176,7 @@ public class InitialMenu{
 
 
 
-    //8
-    public static void enterCommandOfListToExecuteAction(Commands command,int studentId, int courseId,List<Course>courses,List<Teacher>teachers,List<Student>students) {
-        switch (command){
-            case ENROLL:
-                enrollStudent( studentId,courseId, students, courses);
-                break;
-            case ASSIGN:
-            case SHOW_COURSES:
-                showCourses(courses);
-                break;
 
-            case LOOKUP_COURSE:
-            case SHOW_STUDENTS:
-                showStudents(students);
-                break;
 
-            case LOOKUP_STUDENT:
-            case SHOW_TEACHERS:
-                showTeachers(teachers);
-                break;
-            case LOOKUP_TEACHER:
-            case SHOW_PROFIT:
-        }
 
-    }
 }
