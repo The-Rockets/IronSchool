@@ -120,44 +120,34 @@ public class InitialMenu{
     }
 
 
-    public static void showCourses(List<Course> courses) {
-        if (courses.isEmpty()) {
-            System.out.println("No courses have been created yet.");
-        } else {
-            System.out.println("List of courses:");
-            for (int i = 0; i < courses.size(); i++) {
-                System.out.println((i+1) + ": " + courses.get(i).getName() + " - $" + courses.get(i).getPrice());
-            }
+    public static void showCourses(List<Course> courseList) {
+        System.out.println("List of courses:");
+        for (int i = 0; i < courseList.size(); i++) {
+            System.out.println((i+1) + ": " + courseList.get(i).getName() + " - $" + courseList.get(i).getPrice());
         }
     }
 
-    public static void showTeachers(List<Teacher> teachers) {
-
-        if (teachers.isEmpty()) {
-               System.out.println("No teachers have been created yet.");
-           } else {
-               System.out.println("List of teachers:");
-               for (int i = 0; i < teachers.size(); i++) {
-                   System.out.println((i + 1) + ": " + teachers.get(i).getName() + " - $" + teachers.get(i).getSalary());
-               }
-           }
+    public static void showTeachers(List<Teacher> teacherList) {
+        System.out.println("List of teachers:");
+        for (int i = 0; i < teacherList.size(); i++) {
+            System.out.println((i + 1) + ": " + teacherList.get(i).getName() + " - $" + teacherList.get(i).getSalary());
+        }
     }
 
-    public static void showStudents(List<Student> students) {
-
-            System.out.println("List of students:");
-            for (int i = 0; i < students.size(); i++) {
-                System.out.println((i+1) + ": " + students.get(i).getName() + " - "+ students.get(i).getEmail());
-            }
+    public static void showStudents(List<Student> studentList) {
+        System.out.println("List of students:");
+        for (int i = 0; i < studentList.size(); i++) {
+            System.out.println((i+1) + ": " + studentList.get(i).getName() + " - "+ studentList.get(i).getEmail());
+        }
     }
 
-    public static void enrollStudent(int studentId, int courseId,List<Student> students,List<Course> courses) {
+    public static void enrollStudent(int studentId, int courseId,List<Student> studentList,List<Course> courseList) {
         try {
-            if (studentId > students.size() || courseId > courses.size()) {
+            if (studentId > studentList.size() || courseId > courseList.size()) {
                 throw new Exception("Invalid student or course ID");
             } else {
-                Student student = students.get(studentId);
-                Course course = courses.get(courseId);
+                Student student = studentList.get(studentId);
+                Course course = courseList.get(courseId);
                 student.addCourse(course);
                 course.addStudent(student);
                 course.setMoneyEarned(course.getMoneyEarned() + course.getPrice());
@@ -166,19 +156,24 @@ public class InitialMenu{
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
-
-
-
-
-
-
     }
 
-
-
-
-
+    public static void assignTeacher(int teacherId, int courseId, List<Teacher> teacherList, List<Course> courseList) {
+        try {
+            if (teacherId > teacherList.size() || courseId > courseList.size()) {
+                throw new Exception("Invalid teacher or course ID");
+            } else {
+                Teacher teacher = teacherList.get(teacherId);
+                Course course = courseList.get(courseId);
+                teacher.addCourse(course);
+                course.addStudent(teacher);
+                course.setMoneyEarned(course.getMoneyEarned() + course.getPrice());
+                System.out.println("Teacher " + teacher.getName() + " has been enrolled in " + course.getName() + " course.");
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
 
 }

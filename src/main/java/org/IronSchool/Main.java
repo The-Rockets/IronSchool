@@ -1,6 +1,4 @@
 package org.IronSchool;
-import org.IronSchool.ASCIIartTEST.ASCIIartTEST;
-import org.IronSchool.ASCIIartTEST.AdvancedASCIItest;
 import org.IronSchool.ASCIIartTEST.AskingNameSchoolToASCIIart;
 
 import java.util.ArrayList;
@@ -14,42 +12,43 @@ public class Main {
 
 
         //int numberTeacher=InitialMenu.askedNumberTeachersCreated();
-        List<Teacher> teachers = new ArrayList<>();
-        teachers.add(new Teacher("Anthony",10000));
-        teachers.add(new Teacher("Diego",10000));
-        teachers.add(new Teacher("Sebastian",10000));
+        List<Teacher> teacherList = new ArrayList<>();
+        teacherList.add(new Teacher("Anthony",10000));
+        teacherList.add(new Teacher("Diego",10000));
+        teacherList.add(new Teacher("Sebastian",10000));
 
 
         //InitialMenu.enterDetailsEachTeacher(numberTeacher);
-        System.out.println(teachers.toString());
+        System.out.println(teacherList.toString());
 
 
 
         //int numberCourses=InitialMenu.askedNumberCoursesCreated();
-        List<Course> courses =  new ArrayList<>();
-        courses.add(new Course("Matematicas",120));
-        courses.add(new Course("Java",320));
-        courses.add(new Course("SQL",220));
+        List<Course> courseList =  new ArrayList<>();
+        courseList.add(new Course("Matematicas",120));
+        courseList.add(new Course("Java",320));
+        courseList.add(new Course("SQL",220));
 
         //InitialMenu.enterDetailsEachCourse(numberCourses);
-        System.out.println(courses.toString());
+        System.out.println(courseList.toString());
 
 
 
         //int numberStudents=InitialMenu.askedNumberStudentsCreated();
-        List<Student> students= new ArrayList<>();
-        students.add(new Student("Pere","street 5","pere@pere.com"));
-        students.add(new Student("BOb","street 55","a@a.com"));
-        students.add(new Student("Daniel","street 25","dan@dan.com"));
+        List<Student> studentList= new ArrayList<>();
+        studentList.add(new Student("Pere","street 5","pere@pere.com"));
+        studentList.add(new Student("BOb","street 55","a@a.com"));
+        studentList.add(new Student("Daniel","street 25","dan@dan.com"));
 
                 //InitialMenu.enterDetailsEachStudent(numberStudents);
-        System.out.println(students.toString());
+        System.out.println(studentList.toString());
 
 
 
-        Commands command=Commands.ENROLL;
-        int studentId=students.get(0).getStudentId();
-        int courseId=courses.get(0).getId();
+        Commands command=Commands.ASSIGN;
+        int studentId=studentList.get(0).getStudentId();
+        int courseId=courseList.get(0).getCourseId();
+        int teacherId=teacherList.get(0).getTeacherId();
 
         //8
 
@@ -58,25 +57,30 @@ public class Main {
 
         switch (command){
             case ENROLL:
-                InitialMenu.enrollStudent(studentId,courseId, students, courses);
+                InitialMenu.enrollStudent(studentId,courseId, studentList, courseList);
                 break;
             case ASSIGN:
-                //InitialMenu.assignTeacher(studentId,courseId, teachers, courses);
+                InitialMenu.assignTeacher(teacherId,courseId, teacherList, courseList);
                 break;
             case SHOW_COURSES:
-                InitialMenu.showCourses(courses);
+                InitialMenu.showCourses(courseList);
                 break;
 
             case LOOKUP_COURSE:
             case SHOW_STUDENTS:
-                InitialMenu.showStudents(students);
+                InitialMenu.showStudents(studentList);
                 break;
             case LOOKUP_STUDENT:
             case SHOW_TEACHERS:
-                InitialMenu.showTeachers(teachers);
+                InitialMenu.showTeachers(teacherList);
                 break;
             case LOOKUP_TEACHER:
             case SHOW_PROFIT:
         }
+
+
+        System.out.println(teacherList.get(0).getCourseList());
+
+
     }
 }

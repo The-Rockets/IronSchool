@@ -2,10 +2,9 @@ package org.IronSchool;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 public class Course {
-    private final int id;
+    private final int courseId;
     private String name;
     private double price;
     private double moneyEarned;
@@ -16,14 +15,14 @@ public class Course {
     private int counter = 0;
 
     public Course(String name, double price) {
-        this.id = counter;
+        this.courseId = counter;
         setName(name);
         setPrice(price);
         counter++;
     }
 
-    public int getId() {
-        return id;
+    public int getCourseId() {
+        return courseId;
     }
 
 
@@ -71,7 +70,7 @@ public class Course {
     @Override
     public String toString() {
         return "Course{" +
-                "id=" + id +
+                "id=" + courseId +
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 '}';

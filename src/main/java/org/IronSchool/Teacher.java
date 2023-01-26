@@ -1,21 +1,28 @@
 package org.IronSchool;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
 public class Teacher {
 
-    private final UUID id;
-
+    private final int teacherId;
     private String name;
     private double salary;
-    private List<Course> courseList;
+    private List<Course> courseList=new ArrayList<>();
+
+    private int counter = 0;
 
     public Teacher(String name, double salary) {
-        this.id= UUID.randomUUID();
+        this.teacherId= counter;
         setName(name);
         setSalary(salary);
+        counter++;
+    }
+
+    public int getTeacherId() {
+        return teacherId;
     }
 
     public void setName(String name) {
@@ -26,9 +33,6 @@ public class Teacher {
         this.salary = salary;
     }
 
-    public UUID getId() {
-        return id;
-    }
 
     public String getName() {
         return name;
@@ -40,10 +44,16 @@ public class Teacher {
     public void addCourse(Course course) {
         courseList.add(course);
     }
+
+
+    public List<Course> getCourseList() {
+        return courseList;
+    }
+
     @Override
     public String toString() {
         return "Teacher{" +
-                "teacherId='" + id + '\'' +
+                "teacherId='" + teacherId + '\'' +
                 ", name='" + name + '\'' +
                 ", salary=" + salary +
                 '}';

@@ -18,9 +18,6 @@ public class Student {
     private int counter = 0;
 
 
-
-
-
     public Student(String name, String address, String email) {
         this.studentId = counter;
         setName(name);
