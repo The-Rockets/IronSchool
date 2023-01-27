@@ -52,10 +52,11 @@ public class Teacher {
 
     @Override
     public String toString() {
-        return "Teacher{" +
+        return
                 "teacherId='" + teacherId + '\'' +
                 ", name='" + name + '\'' +
                 ", salary=" + salary +
+                ", Courses=" + courseList +
                 '}';
     }
 }

@@ -73,13 +73,14 @@ public class Course {
 
     @Override
     public String toString() {
-        return "Course{" +
-                "id=" + courseId +
+        return
+                "courseId=" + courseId +
                 ", name='" + name + '\'' +
                 ", price=" + price +
+                ", teacher=" + teacher +
+                ", studentList=" + studentList +
                 '}';
     }
-
 
     public void addStudent(Student student) {
         studentList.add(student);

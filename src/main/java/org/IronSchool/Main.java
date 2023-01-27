@@ -1,46 +1,21 @@
 package org.IronSchool;
 import org.IronSchool.ASCIIartTEST.AskingNameSchoolToASCIIart;
+import org.IronSchool.ASCIIartTEST.GodByAsciiArt;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
 
 
         String name = AskingNameSchoolToASCIIart.askingSchoolNameASCIIMethod();
-
-
-        //int numberTeacher=InitialMenu.askedNumberTeachersCreated();
-        List<Teacher> teacherList = new ArrayList<>();
-        teacherList.add(new Teacher("Anthony", 100));
-        teacherList.add(new Teacher("Diego", 100));
-        teacherList.add(new Teacher("Sebastian", 200));
-
-        //InitialMenu.enterDetailsEachTeacher(numberTeacher);
-        System.out.println(teacherList.toString());
-
-        //int numberCourses=InitialMenu.askedNumberCoursesCreated();
-        List<Course> courseList = new ArrayList<>();
-        courseList.add(new Course("Matematicas", 120));
-        courseList.add(new Course("Java", 320));
-        courseList.add(new Course("SQL", 220));
-
-        //InitialMenu.enterDetailsEachCourse(numberCourses);
-        System.out.println(courseList.toString());
-
-        //int numberStudents=InitialMenu.askedNumberStudentsCreated();
-        List<Student> studentList = new ArrayList<>();
-        studentList.add(new Student("Pere", "street 5", "pere@pere.com"));
-        studentList.add(new Student("BOb", "street 55", "a@a.com"));
-        studentList.add(new Student("Daniel", "street 25", "dan@dan.com"));
-
-        //InitialMenu.enterDetailsEachStudent(numberStudents);
-        System.out.println(studentList.toString());
-
-        //CommandMenu.comandMenu(scanner);
+        List<Teacher> teacherList = InitialSchoolSetUp.initialTeachersSetUp();
+        List<Course> courseList = InitialSchoolSetUp.initialCoursesSetUp();
+        List<Student> studentList = InitialSchoolSetUp.initialStudentSetUp();
 
 
         School.setName(name);
@@ -50,26 +25,34 @@ public class Main {
 
         int studentId = School.getStudentList().get(2).getStudentId();
         int studentId1 = School.getStudentList().get(1).getStudentId();
-        int studentId2 = School.getStudentList().get(2).getStudentId();
+        int studentId2 = School.getStudentList().get(0).getStudentId();
 
-        int courseId = courseList.get(1).getCourseId();
+        int courseId = courseList.get(0).getCourseId();
+        int courseId1 = courseList.get(1).getCourseId();
+        int courseId2 = courseList.get(2).getCourseId();
+
         int teacherId = teacherList.get(0).getTeacherId();
+        int teacherId1 = teacherList.get(1).getTeacherId();
+        int teacherId2 = teacherList.get(2).getTeacherId();
 
         //8
         InitialMenu.assignTeacher(teacherId, courseId);
-
+        InitialMenu.assignTeacher(teacherId2, courseId2);
         InitialMenu.enrollStudent(studentId1, courseId);
-        InitialMenu.enrollStudent(studentId2, courseId);
-        InitialMenu.enrollStudent(studentId, courseId);
+        InitialMenu.enrollStudent(studentId2, courseId1);
+
 
 
 
 
         boolean test = false;
         while (!test) {
-            System.out.println("Press 'c' --back to Commands Menu" + "\n" +
-                    "Press 'b' -- back to Input menu.." + "\n" +
-                    "Press 'e' -- to EXIT");
+            System.out.println("========================================================================");
+            System.out.println("- - - - - - - - - - - - " + name.toUpperCase() +" School MAIN Menu  - - - - - - - - - - - - ");
+            System.out.println("========================================================================");
+            System.out.println("       Press 'c' --> to Commands Menu" + "\n" +
+                    "       Press 'b' --> to Input data menu." + "\n" +
+                    "       Press 'e' --> to EXIT");
             String choice = scanner.next().toLowerCase();
             while (!choice.equals("c") && !choice.equals("e") && !choice.equals("b")) {
 
@@ -82,6 +65,7 @@ public class Main {
                     break;
                 case ("e"):
                     System.out.println("fin de la aplicacion");
+                    GodByAsciiArt.goodBy();
                     test = true;
                     break;
                 case ("b"):
@@ -96,4 +80,6 @@ public class Main {
             }
         }
     }
+
+
 }

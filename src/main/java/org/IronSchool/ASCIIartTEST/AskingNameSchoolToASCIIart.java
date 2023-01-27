@@ -11,20 +11,20 @@ public class AskingNameSchoolToASCIIart {
 
         System.out.println("Enter the name of the school");
         // Obtener el nombre del usuario
-        //Scanner scanner = new Scanner(System.in);
-        //String name = scanner.nextLine();
+        Scanner scanner = new Scanner(System.in);
+        String name = scanner.nextLine();
 
-        String name = "Rockets School";
+        //String name = "Rockets";
         try {
             // Generar el ASCII art
-            String asciiArt = FigletFont.convertOneLine(name);
+            String asciiArt = FigletFont.convertOneLine(name +"    School");
 
-/*
+
             // Escribir el ASCII art en un archivo
-            PrintWriter writer = new PrintWriter("nombre.txt", "UTF-8");
+            PrintWriter writer = new PrintWriter("SchoolName.txt", "UTF-8");
             writer.println(asciiArt);
             writer.close();
-*/
+
 
             // imprimir en pantalla
             System.out.println(asciiArt);
