@@ -1,0 +1,27 @@
+@startuml
+left to right direction
+actor "Usuario" as fc
+
+rectangle "School MGMT" {
+  usecase "Enroll" as UC1
+  usecase "Assign" as UC2
+  usecase "Show Courses" as UC3
+  usecase "Lookup Courses" as UC4
+  usecase "Show Students" as UC5
+  usecase "Lookup Courses" as UC6
+  usecase "Show Teachers" as UC7
+  usecase "Lookup Teachers" as UC8
+  usecase "Show Profit" as UC9
+}
+fc --> UC1
+fc --> UC2
+fc --> UC3
+fc --> UC4
+fc --> UC5
+fc --> UC6
+fc --> UC7
+fc --> UC8
+fc --> UC9
+
+
+@enduml

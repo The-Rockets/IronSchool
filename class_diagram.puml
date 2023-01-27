@@ -1,0 +1,61 @@
+@startuml
+class Teacher {
+  -teacherId : string
+  -name : string
+  -salary : double
+  +__construct(name : string, salary : double)
+  +getTeacherId() : string
+  +getName() : string
+  +getSalary() : double
+  +setName(name : string)
+  +setSalary(salary : double)
+}
+
+class Course {
+  -courseId : string
+  -name : string
+  -price : double
+  -money_earned : double
+  -teacher : Teacher
+  +__construct(name : string, price : double)
+  +getCourseId() : string
+  +getName() : string
+  +getPrice() : double
+  +getMoneyEarned() : double
+  +getTeacher() : Teacher
+  +setName(name : string)
+  +setPrice(price : double)
+  +setTeacher(teacher : Teacher)
+}
+
+class Student {
+  -studentId : string
+  -name : string
+  -address : string
+  -email : string
+  -course : Course
+  +__construct(name : string, address : string, email : string)
+  +getStudentId() : string
+  +getName() : string
+  +getAddress() : string
+  +getEmail() : string
+  +getCourse() : Course
+  +setName(name : string)
+  +setAddress(address : string)
+  +setEmail(email : string)
+  +setCourse(course : Course)
+}
+class School {
+  -name : string
+  -List<Course> courseList
+  -List<Teacher> teacherList
+  -List<Student> studentList
+}
+
+School --o Course
+School --o Teacher
+School --o Student
+Course --o Student
+Course --o Teacher
+Teacher --o Course
+@enduml

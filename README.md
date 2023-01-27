@@ -7,6 +7,8 @@ a school system. The system includes three main classes: Teacher, Student,
 and Course. Each class has its own unique attributes and methods, and the user 
 can interact with them through a series of commands in the standard input.
 
+![Class Diagram](class_diagram.png)
+
 ### Classes
 #### Teacher class
 This class represents a teacher in the school system and has the following attributes:
@@ -65,3 +67,5 @@ LOOKUP STUDENT [STUDENT_ID]: This command display the full details of the specif
 SHOW TEACHERS: This command display a list of all teachers
 LOOKUP TEACHER [TEACHER_ID]: This command display the full details of the specified teacher
 SHOW PROFIT: This command calculate (The total money earned from all courses)
+
+![Use Case Diagram](useCase_diagram.png)
