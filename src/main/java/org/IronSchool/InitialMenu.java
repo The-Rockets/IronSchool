@@ -141,13 +141,13 @@ public class InitialMenu{
         }
     }
 
-    public static void enrollStudent(int studentId, int courseId,List<Student> studentList,List<Course> courseList) {
+    public static void enrollStudent(int studentId, int courseId) {
         try {
-            if (studentId > studentList.size() || courseId > courseList.size()) {
+            if (studentId > School.getStudentList().size() || courseId > School.getCourseList().size()) {
                 throw new Exception("Invalid student or course ID");
             } else {
-                Student student = studentList.get(studentId);
-                Course course = courseList.get(courseId);
+                Student student = School.getStudentList().get(studentId);
+                Course course = School.getCourseList().get(courseId);
                 student.addCourse(course);
                 course.addStudent(student);
                 course.setMoneyEarned(course.getMoneyEarned() + course.getPrice());
@@ -158,15 +158,17 @@ public class InitialMenu{
         }
     }
 
-    public static void assignTeacher(int teacherId, int courseId, List<Teacher> teacherList, List<Course> courseList) {
+
+
+    public static void assignTeacher(int teacherId, int courseId) {
         try {
-            if (teacherId > teacherList.size() || courseId > courseList.size()) {
+            if (teacherId > School.getTeacherList().size() || courseId > School.getCourseList().size()) {
                 throw new Exception("Invalid teacher or course ID");
             } else {
-                Teacher teacher = teacherList.get(teacherId);
-                Course course = courseList.get(courseId);
+                Teacher teacher = School.getTeacherList().get(teacherId);
+                Course course = School.getCourseList().get(courseId);
                 teacher.addCourse(course);
-                course.addStudent(teacher);
+                course.addTeacher(teacher);
                 course.setMoneyEarned(course.getMoneyEarned() + course.getPrice());
                 System.out.println("Teacher " + teacher.getName() + " has been enrolled in " + course.getName() + " course.");
             }
@@ -174,6 +176,9 @@ public class InitialMenu{
             System.out.println(e.getMessage());
         }
     }
+
+
+
 
 
 }

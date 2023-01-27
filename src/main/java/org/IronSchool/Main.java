@@ -8,6 +8,9 @@ public class Main {
     public static void main(String[] args) {
 
 
+
+
+
         String name = AskingNameSchoolToASCIIart.askingSchoolNameASCIIMethod();
 
 
@@ -45,7 +48,15 @@ public class Main {
 
 
 
-        Commands command=Commands.ASSIGN;
+
+        School.setName(name);
+        School.setTeacherList(teacherList);
+        School.setCourseList(courseList);
+        School.setStudentList(studentList);
+
+
+
+        Commands command=Commands.ENROLL;
         int studentId=studentList.get(0).getStudentId();
         int courseId=courseList.get(0).getCourseId();
         int teacherId=teacherList.get(0).getTeacherId();
@@ -57,10 +68,12 @@ public class Main {
 
         switch (command){
             case ENROLL:
-                InitialMenu.enrollStudent(studentId,courseId, studentList, courseList);
+                InitialMenu.enrollStudent(studentId,courseId);
+                System.out.println(studentList.get(0).getListCourses());
                 break;
             case ASSIGN:
-                InitialMenu.assignTeacher(teacherId,courseId, teacherList, courseList);
+                InitialMenu.assignTeacher(teacherId,courseId);
+                System.out.println(teacherList.get(0).getCourseList());
                 break;
             case SHOW_COURSES:
                 InitialMenu.showCourses(courseList);
@@ -79,7 +92,7 @@ public class Main {
         }
 
 
-        System.out.println(teacherList.get(0).getCourseList());
+
 
 
     }

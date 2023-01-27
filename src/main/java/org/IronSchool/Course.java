@@ -43,8 +43,11 @@ public class Course {
     }
 
     public double getMoneyEarned() {
-
-        return getPrice()* studentList.size();
+        double salaryTeachers=0;
+        for(Teacher teacher:teacherList){
+              salaryTeachers+=teacher.getSalary();
+        }
+        return getPrice()* studentList.size()- salaryTeachers;
     }
 
     public void setMoneyEarned(double money_earned) {
@@ -80,7 +83,7 @@ public class Course {
     public void addStudent(Student student) {
         studentList.add(student);
     }
-    public void addStudent(Teacher teacher) {
+    public void addTeacher(Teacher teacher) {
         teacherList.add(teacher);
     }
 }
