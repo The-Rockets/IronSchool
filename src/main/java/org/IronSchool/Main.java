@@ -16,9 +16,9 @@ public class Main {
 
         //int numberTeacher=InitialMenu.askedNumberTeachersCreated();
         List<Teacher> teacherList = new ArrayList<>();
-        teacherList.add(new Teacher("Anthony",10000));
-        teacherList.add(new Teacher("Diego",10000));
-        teacherList.add(new Teacher("Sebastian",10000));
+        teacherList.add(new Teacher("Anthony",100));
+        teacherList.add(new Teacher("Diego",100));
+        teacherList.add(new Teacher("Sebastian",100));
 
 
         //InitialMenu.enterDetailsEachTeacher(numberTeacher);
@@ -56,7 +56,9 @@ public class Main {
 
 
 
-        Commands command=Commands.ENROLL;
+        Commands command=Commands.SHOW_PROFIT;
+
+
         int studentId=studentList.get(0).getStudentId();
         int courseId=courseList.get(0).getCourseId();
         int teacherId=teacherList.get(0).getTeacherId();
@@ -80,15 +82,19 @@ public class Main {
                 break;
 
             case LOOKUP_COURSE:
+                InitialMenu.lookupCourse(courseId,teacherId);
             case SHOW_STUDENTS:
                 InitialMenu.showStudents(studentList);
                 break;
             case LOOKUP_STUDENT:
+                InitialMenu.lookupStudent(studentList.get(studentId));
             case SHOW_TEACHERS:
                 InitialMenu.showTeachers(teacherList);
                 break;
             case LOOKUP_TEACHER:
+                InitialMenu.lookupTeacher(teacherList,teacherId);
             case SHOW_PROFIT:
+                InitialMenu.showProfit(courseList,teacherList);
         }
 
 

@@ -177,8 +177,71 @@ public class InitialMenu{
         }
     }
 
+public static void lookupCourse(int courseId, int teacher){
+    Course course = School.getCourseList().get(courseId); // implementa un método para buscar un curso por su ID
+    if (course != null) {
+        System.out.println("ID: " + course.getCourseId());
+        System.out.println("Name: " + course.getName());
+        System.out.println("Price: " + course.getPrice());
+        System.out.println("Money earned: " + course.getMoneyEarned());
+        if (course.getTeacherList().get(teacher) != null) {
+            System.out.println("Teacher: " + course.getTeacherList().get(teacher).getName());
+        } else {
+            System.out.println("Teacher: Not assigned");
+        }
+    } else {
+        System.out.println("Course not found");
+    }
+}
+    public static void lookupStudent(Student student){
 
+        if (student != null) {
+            System.out.println("ID: " + student.getStudentId());
+            System.out.println("Name: " + student.getName());
+            System.out.println("Address: " + student.getAddress());
+            System.out.println("Email: " + student.getEmail());
+            if (student.getListCourses() != null) {
+                System.out.println("Course: " + student.getListCourses());
+            } else {
+                System.out.println("Course: Not enrolled");
+            }
+        } else {
+            System.out.println("Student not found");
+        }
+
+
+    }
+
+    public static void showProfit(List<Course> courseList, List<Teacher> teacherList) {
+        double totalMoneyEarned = 0;
+        double totalSalaries = 0;
+        for (Course c : courseList) {
+            totalMoneyEarned += c.getMoneyEarned();
+        }
+        for (Teacher t : teacherList) {
+            totalSalaries += t.getSalary();
+        }
+        double profit = totalMoneyEarned - totalSalaries;
+        System.out.println("The total profit is: " + profit);
+    }
+
+    public static void lookupTeacher(List<Teacher> teacherList, int teacherId) {
+        for (Teacher t : teacherList) {
+            if (t.getTeacherId() == teacherId) {
+                System.out.println("Teacher ID: " + t.getTeacherId());
+                System.out.println("Name: " + t.getName());
+                System.out.println("Salary: " + t.getSalary());
+                return;
+            }
+        }
+        System.out.println("Teacher not found.");
+    }
 
 
 
 }
+
+
+
+
+
