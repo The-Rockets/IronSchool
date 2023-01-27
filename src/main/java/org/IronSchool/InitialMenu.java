@@ -145,8 +145,10 @@ public class InitialMenu{
         List<Course> courseList=School.getCourseList();
         System.out.println("List of courses:");
         for (int i = 0; i < courseList.size(); i++) {
-            System.out.println((i+1) + ": " + courseList.get(i).getName() + " - $" + courseList.get(i).getPrice());
-        }
+            System.out.println((i+1) + ": " +
+                    courseList.get(i).getName() + " - $" +
+                    courseList.get(i).getPrice());
+         }
     }
 
     public static void showTeachers() {
@@ -200,7 +202,7 @@ public class InitialMenu{
             System.out.println(e.getMessage());
         }
     }
-
+//4
 public static void lookupCourse(int courseId){
     Course course = School.getCourseList().get(courseId); // implementa un método para buscar un curso por su ID
     if (course != null) {

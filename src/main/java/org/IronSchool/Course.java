@@ -43,7 +43,7 @@ public class Course {
     }
 
     public double getMoneyEarned() {
-        return getPrice()* studentList.size();
+        return getPrice() * studentList.size();
     }
 
 
