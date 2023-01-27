@@ -86,12 +86,12 @@ public class Main {
                     break;
                 case ("b"):
                     AskingNameSchoolToASCIIart.askingSchoolNameASCIIMethod();
-                        /*int numberTeacher = InitialMenu.askedNumberTeachersCreated();
+                        int numberTeacher = InitialMenu.askedNumberTeachersCreated();
                         InitialMenu.enterDetailsEachTeacher(numberTeacher);
                         int numberCourses = InitialMenu.askedNumberCoursesCreated();
                         InitialMenu.enterDetailsEachCourse(numberCourses);
                         int numberStudents = InitialMenu.askedNumberStudentsCreated();
-                        InitialMenu.enterDetailsEachStudent(numberStudents);*/
+                        InitialMenu.enterDetailsEachStudent(numberStudents);
                     break;
             }
         }

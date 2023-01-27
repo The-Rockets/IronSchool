@@ -45,6 +45,27 @@ public class InitialMenu{
         return stat;
     }
 
+    public static int statIntegerFilterId(String statName) {
+        Scanner scanner = new Scanner(System.in);
+        boolean  invalidStat= false;
+        int stat=0;
+        while (!invalidStat) {
+            try {
+                System.out.println("Enter a number of "+statName+" which must be a not negative integer");
+                stat = scanner.nextInt();
+                if (stat >=0) {
+                    invalidStat = true;
+                }else {
+                    System.err.println("The number of "+statName+" must be a not negative integer");
+                }
+            } catch (InputMismatchException e) {
+                System.err.println("The number of "+statName+" must be a not negative integer");
+                scanner.nextLine();
+            }
+        }
+        return stat;
+    }
+
 
     //1
     public static String askingNameSchool() {
@@ -131,16 +152,18 @@ public class InitialMenu{
     public static void showTeachers() {
         List<Teacher> teacherList=School.getTeacherList();
         System.out.println("List of teachers:");
-        for (int i = 0; i < teacherList.size(); i++) {
-            System.out.println((i + 1) + ": " + teacherList.get(i).getName() + " - $" + teacherList.get(i).getSalary());
+        for (Teacher teacher: teacherList) {
+            System.out.println((teacher.getTeacherId() + 1) + ": " + teacher.getName() + " - $" + teacher.getSalary());
+            System.out.println("Courses: " +teacher.getCourseList());
         }
     }
 
     public static void showStudents() {
         List<Student> studentList=School.getStudentList();
         System.out.println("List of students:");
-        for (int i = 0; i < studentList.size(); i++) {
-            System.out.println((i+1) + ": " + studentList.get(i).getName() + " - "+ studentList.get(i).getEmail());
+        for (Student student: studentList) {
+            System.out.println((student.getStudentId()+1) + ": " + student.getName() + " - "+ student.getEmail());
+            System.out.println("Courses: " +student.getListCourses());
         }
     }
 

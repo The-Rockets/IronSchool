@@ -6,6 +6,9 @@ import java.util.Scanner;
 
 public class CommandMenu {
 
+
+
+
 public static void comandMenu(Scanner scanner){
 
     boolean test = false;
@@ -47,18 +50,15 @@ public static void comandMenu(Scanner scanner){
 
         switch (comando){
         case ENROLL:
-            System.out.println("seleciona un estudiante" );
-            int indiceStudent = scanner.nextInt();
-            System.out.println("seleciona un curso" );
-            int indiceCurso = scanner.nextInt();
+
+            int indiceStudent = InitialMenu.statIntegerFilterId("Student Id");
+            int indiceCurso = InitialMenu.statIntegerFilterId("Curse Id");
             InitialMenu.enrollStudent(indiceStudent,indiceCurso);
             System.out.println(studentList.get(0).getListCourses());
             break;
         case ASSIGN:
-            System.out.println("seleciona un Teacher" );
-            int indiceTecher = scanner.nextInt();
-            System.out.println("seleciona un curso" );
-            int indiceCurso2 = scanner.nextInt();
+            int indiceTecher = InitialMenu.statIntegerFilterId("Teacher Id");
+            int indiceCurso2 = InitialMenu.statIntegerFilterId("Curse Id");
             InitialMenu.assignTeacher(indiceTecher,indiceCurso2);
             System.out.println(teacherList.get(0).getCourseList());
             break;
@@ -66,21 +66,22 @@ public static void comandMenu(Scanner scanner){
             InitialMenu.showCourses();
             break;
         case LOOKUP_COURSE:
-            System.out.println("seleciona un curso" );
-            int indiceCurso3 = scanner.nextInt();
+            int indiceCurso3 = InitialMenu.statIntegerFilterId("Course Id");
             InitialMenu.lookupCourse(indiceCurso3);
             break;
         case SHOW_STUDENTS:
             InitialMenu.showStudents();
             break;
         case LOOKUP_STUDENT:
-            InitialMenu.lookupStudent(studentId);
+            int indiceStudent1 = InitialMenu.statIntegerFilterId("Student Id");
+            InitialMenu.lookupStudent(indiceStudent1);
             break;
         case SHOW_TEACHERS:
             InitialMenu.showTeachers();
             break;
         case LOOKUP_TEACHER:
-            InitialMenu.lookupTeacher(teacherId);
+            int indiceTecher4 = InitialMenu.statIntegerFilterId("Teacher Id");
+            InitialMenu.lookupTeacher(indiceTecher4);
             break;
         case SHOW_PROFIT:
             InitialMenu.showProfit();
