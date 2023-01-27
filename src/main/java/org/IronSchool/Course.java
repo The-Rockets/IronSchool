@@ -7,7 +7,7 @@ public class Course {
     private final int courseId;
     private String name;
     private double price;
-    private double moneyEarned;
+
 
     private Teacher teacher;
     private List<Student> studentList = new ArrayList<>();
@@ -43,12 +43,9 @@ public class Course {
     }
 
     public double getMoneyEarned() {
-        return getPrice()* studentList.size()-teacher.getSalary();
+        return getPrice()* studentList.size();
     }
 
-    public void setMoneyEarned(double money_earned) {
-        this.moneyEarned = money_earned;
-    }
 
     public Teacher getTeacher() {
         return teacher;

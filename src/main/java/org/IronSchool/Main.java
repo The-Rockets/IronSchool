@@ -92,9 +92,9 @@ public class Main {
                 InitialMenu.showTeachers();
                 break;
             case LOOKUP_TEACHER:
-                InitialMenu.lookupTeacher(teacherList,teacherId);
+                InitialMenu.lookupTeacher(teacherId);
             case SHOW_PROFIT:
-                InitialMenu.showProfit(courseList,teacherList);
+                InitialMenu.showProfit();
                 break;
         }
 

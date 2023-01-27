@@ -129,7 +129,7 @@ public class InitialMenu{
     }
 
     public static void showTeachers() {
-        List<Teacher> teacherList=School.getTeacherList()
+        List<Teacher> teacherList=School.getTeacherList();
         System.out.println("List of teachers:");
         for (int i = 0; i < teacherList.size(); i++) {
             System.out.println((i + 1) + ": " + teacherList.get(i).getName() + " - $" + teacherList.get(i).getSalary());
@@ -137,7 +137,7 @@ public class InitialMenu{
     }
 
     public static void showStudents() {
-        List<Student> studentList=School.getStudentList()
+        List<Student> studentList=School.getStudentList();
         System.out.println("List of students:");
         for (int i = 0; i < studentList.size(); i++) {
             System.out.println((i+1) + ": " + studentList.get(i).getName() + " - "+ studentList.get(i).getEmail());
@@ -153,7 +153,6 @@ public class InitialMenu{
                 Course course = School.getCourseList().get(courseId);
                 student.addCourse(course);
                 course.addStudent(student);
-                course.setMoneyEarned(course.getMoneyEarned() + course.getPrice());
                 System.out.println("Student " + student.getName() + " has been enrolled in " + course.getName() + " course.");
             }
         } catch (Exception e) {
@@ -172,7 +171,6 @@ public class InitialMenu{
                 Course course = School.getCourseList().get(courseId);
                 teacher.addCourse(course);
                 course.addTeacher(teacher);
-                course.setMoneyEarned(course.getMoneyEarned() + course.getPrice());
                 System.out.println("Teacher " + teacher.getName() + " has been enrolled in " + course.getName() + " course.");
             }
         } catch (Exception e) {
@@ -211,11 +209,26 @@ public static void lookupCourse(int courseId){
         } else {
             System.out.println("Student not found");
         }
-
-
     }
 
-    public static void showProfit(List<Course> courseList, List<Teacher> teacherList) {
+    public static void lookupTeacher(int teacherId) {
+        Teacher teacher = School.getTeacherList().get(teacherId);
+        if (teacher != null) {
+            System.out.println("ID: " + teacher.getTeacherId());
+            System.out.println("Name: " + teacher.getName());
+            if (teacher.getCourseList() != null) {
+                System.out.println("Course: " + teacher.getCourseList());
+            } else {
+                System.out.println("Course: Not enrolled");
+            }
+        } else {
+            System.out.println("Teacher not found");
+        }
+    }
+
+    public static void showProfit() {
+        List<Course> courseList= School.getCourseList();
+        List<Teacher> teacherList=School.getTeacherList();
         double totalMoneyEarned = 0;
         double totalSalaries = 0;
         for (Course c : courseList) {
@@ -224,20 +237,7 @@ public static void lookupCourse(int courseId){
         for (Teacher t : teacherList) {
             totalSalaries += t.getSalary();
         }
-        double profit = totalMoneyEarned - totalSalaries;
-        System.out.println("The total profit is: " + profit);
-    }
-
-    public static void lookupTeacher(List<Teacher> teacherList, int teacherId) {
-        for (Teacher t : teacherList) {
-            if (t.getTeacherId() == teacherId) {
-                System.out.println("Teacher ID: " + t.getTeacherId());
-                System.out.println("Name: " + t.getName());
-                System.out.println("Salary: " + t.getSalary());
-                return;
-            }
-        }
-        System.out.println("Teacher not found.");
+        System.out.println("The total profit is: " + (totalMoneyEarned - totalSalaries));
     }
 
 
