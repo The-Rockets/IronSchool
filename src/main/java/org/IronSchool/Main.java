@@ -88,11 +88,13 @@ public class Main {
                 break;
             case LOOKUP_STUDENT:
                 InitialMenu.lookupStudent(studentId);
+                break;
             case SHOW_TEACHERS:
                 InitialMenu.showTeachers();
                 break;
             case LOOKUP_TEACHER:
                 InitialMenu.lookupTeacher(teacherId);
+                break;
             case SHOW_PROFIT:
                 InitialMenu.showProfit();
                 break;
