@@ -78,23 +78,24 @@ public class Main {
                 System.out.println(teacherList.get(0).getCourseList());
                 break;
             case SHOW_COURSES:
-                InitialMenu.showCourses(courseList);
+                InitialMenu.showCourses();
                 break;
-
             case LOOKUP_COURSE:
-                InitialMenu.lookupCourse(courseId,teacherId);
+                InitialMenu.lookupCourse(courseId);
+                break;
             case SHOW_STUDENTS:
-                InitialMenu.showStudents(studentList);
+                InitialMenu.showStudents();
                 break;
             case LOOKUP_STUDENT:
-                InitialMenu.lookupStudent(studentList.get(studentId));
+                InitialMenu.lookupStudent(studentId);
             case SHOW_TEACHERS:
-                InitialMenu.showTeachers(teacherList);
+                InitialMenu.showTeachers();
                 break;
             case LOOKUP_TEACHER:
                 InitialMenu.lookupTeacher(teacherList,teacherId);
             case SHOW_PROFIT:
                 InitialMenu.showProfit(courseList,teacherList);
+                break;
         }
 
 

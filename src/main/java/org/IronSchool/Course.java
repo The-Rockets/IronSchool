@@ -8,8 +8,8 @@ public class Course {
     private String name;
     private double price;
     private double moneyEarned;
-    private List<Teacher> teacherList = new ArrayList<>();
 
+    private Teacher teacher;
     private List<Student> studentList = new ArrayList<>();
 
     private int counter = 0;
@@ -43,23 +43,27 @@ public class Course {
     }
 
     public double getMoneyEarned() {
-        double salaryTeachers=0;
-        for(Teacher teacher:teacherList){
-              salaryTeachers+=teacher.getSalary();
-        }
-        return getPrice()* studentList.size()- salaryTeachers;
+        return getPrice()* studentList.size()-teacher.getSalary();
     }
 
     public void setMoneyEarned(double money_earned) {
         this.moneyEarned = money_earned;
     }
 
-    public List<Teacher> getTeacherList() {
-        return teacherList;
+    public Teacher getTeacher() {
+        return teacher;
     }
 
-    public void setTeacherList(List<Teacher> teacherList) {
-        this.teacherList = teacherList;
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
+
+    public int getCounter() {
+        return counter;
+    }
+
+    public void setCounter(int counter) {
+        this.counter = counter;
     }
 
     public List<Student> getStudentList() {
@@ -84,7 +88,7 @@ public class Course {
         studentList.add(student);
     }
     public void addTeacher(Teacher teacher) {
-        teacherList.add(teacher);
+        this.teacher=teacher;
     }
 }
 

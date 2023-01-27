@@ -120,21 +120,24 @@ public class InitialMenu{
     }
 
 
-    public static void showCourses(List<Course> courseList) {
+    public static void showCourses() {
+        List<Course> courseList=School.getCourseList();
         System.out.println("List of courses:");
         for (int i = 0; i < courseList.size(); i++) {
             System.out.println((i+1) + ": " + courseList.get(i).getName() + " - $" + courseList.get(i).getPrice());
         }
     }
 
-    public static void showTeachers(List<Teacher> teacherList) {
+    public static void showTeachers() {
+        List<Teacher> teacherList=School.getTeacherList()
         System.out.println("List of teachers:");
         for (int i = 0; i < teacherList.size(); i++) {
             System.out.println((i + 1) + ": " + teacherList.get(i).getName() + " - $" + teacherList.get(i).getSalary());
         }
     }
 
-    public static void showStudents(List<Student> studentList) {
+    public static void showStudents() {
+        List<Student> studentList=School.getStudentList()
         System.out.println("List of students:");
         for (int i = 0; i < studentList.size(); i++) {
             System.out.println((i+1) + ": " + studentList.get(i).getName() + " - "+ studentList.get(i).getEmail());
@@ -177,15 +180,15 @@ public class InitialMenu{
         }
     }
 
-public static void lookupCourse(int courseId, int teacher){
+public static void lookupCourse(int courseId){
     Course course = School.getCourseList().get(courseId); // implementa un método para buscar un curso por su ID
     if (course != null) {
         System.out.println("ID: " + course.getCourseId());
         System.out.println("Name: " + course.getName());
         System.out.println("Price: " + course.getPrice());
         System.out.println("Money earned: " + course.getMoneyEarned());
-        if (course.getTeacherList().get(teacher) != null) {
-            System.out.println("Teacher: " + course.getTeacherList().get(teacher).getName());
+        if (course.getTeacher() != null) {
+            System.out.println("Teacher: " + course.getTeacher().getName());
         } else {
             System.out.println("Teacher: Not assigned");
         }
@@ -193,8 +196,8 @@ public static void lookupCourse(int courseId, int teacher){
         System.out.println("Course not found");
     }
 }
-    public static void lookupStudent(Student student){
-
+    public static void lookupStudent(int studentId){
+        Student student = School.getStudentList().get(studentId);
         if (student != null) {
             System.out.println("ID: " + student.getStudentId());
             System.out.println("Name: " + student.getName());
