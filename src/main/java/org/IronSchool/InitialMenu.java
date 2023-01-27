@@ -216,6 +216,7 @@ public static void lookupCourse(int courseId){
         if (teacher != null) {
             System.out.println("ID: " + teacher.getTeacherId());
             System.out.println("Name: " + teacher.getName());
+            System.out.println("Salary: " + teacher.getSalary());
             if (teacher.getCourseList() != null) {
                 System.out.println("Course: " + teacher.getCourseList());
             } else {

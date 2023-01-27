@@ -12,7 +12,7 @@ public class Teacher {
     private double salary;
     private List<Course> courseList=new ArrayList<>();
 
-    private int counter = 0;
+    private static int counter = 0;
 
     public Teacher(String name, double salary) {
         this.teacherId= counter;

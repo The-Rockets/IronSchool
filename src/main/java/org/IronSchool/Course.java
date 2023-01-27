@@ -12,7 +12,7 @@ public class Course {
     private Teacher teacher;
     private List<Student> studentList = new ArrayList<>();
 
-    private int counter = 0;
+    private static int counter = 0;
 
     public Course(String name, double price) {
         this.courseId = counter;

@@ -15,7 +15,7 @@ public class Student {
     private List<Teacher> listTeachers = new ArrayList<>();
 
 
-    private int counter = 0;
+    private static int counter = 0;
 
 
     public Student(String name, String address, String email) {
